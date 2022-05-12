@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm") version "1.6.10"
-    kotlin("plugin.allopen") version "1.6.10"
-    id("io.quarkus") version "2.8.2.Final"
+    kotlin("jvm") version "1.6.21"
+    kotlin("plugin.allopen") version "1.6.21"
+    id("io.quarkus") version "2.9.0.Final"
 }
 
 repositories {
@@ -9,12 +9,16 @@ repositories {
 }
 
 dependencies {
-    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:2.8.2.Final"))
+    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:2.9.0.Final"))
     implementation(kotlin("stdlib-jdk8"))
     implementation("io.quarkus:quarkus-kotlin")
+    implementation("io.quarkus:quarkus-reactive-pg-client")
     implementation("io.quarkus:quarkus-resteasy-reactive-jackson")
     implementation("io.quarkus:quarkus-rest-client-reactive-jackson")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    testImplementation("io.quarkus:quarkus-junit5")
+    testImplementation("io.rest-assured:rest-assured")
+    testImplementation("org.testcontainers:postgresql")
 }
 
 java {
